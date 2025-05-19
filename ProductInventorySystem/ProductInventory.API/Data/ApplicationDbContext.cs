@@ -16,7 +16,6 @@ namespace ProductInventory.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Конфигурација за да го мапираме нашиот модел со постоечката табела
             modelBuilder.Entity<Product>()
                 .ToTable("products", "public")
                 .HasKey(p => p.Id);

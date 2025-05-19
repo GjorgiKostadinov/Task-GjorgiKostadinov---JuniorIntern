@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ProductInventory.API.Data;
 using ProductInventory.API.Models;
 
+//ne zabravaj logika get,post,getid,putid i delete 
+
 namespace ProductInventory.API.Controllers
 {
     [Route("api/[controller]")]
@@ -16,7 +18,7 @@ namespace ProductInventory.API.Controllers
             _context = context;
         }
 
-        // GET: api/Products
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts(
             [FromQuery] string? searchTerm,
@@ -25,35 +27,33 @@ namespace ProductInventory.API.Controllers
             [FromQuery] int pageSize = 10)
         {
             IQueryable<Product> query = _context.Products;
-            
-            // Apply filters if provided
+
+
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                query = query.Where(p => p.Name.Contains(searchTerm) || 
+                query = query.Where(p => p.Name.Contains(searchTerm) ||
                                         (p.Description != null && p.Description.Contains(searchTerm)));
             }
-            
+
             if (!string.IsNullOrEmpty(category))
             {
                 query = query.Where(p => p.Category == category);
             }
-            
-            // Apply pagination
+
             var totalItems = await query.CountAsync();
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
-            
+
             var products = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
-            
+
             Response.Headers.Append("X-Total-Count", totalItems.ToString());
             Response.Headers.Append("X-Total-Pages", totalPages.ToString());
-            
+
             return Ok(products);
         }
 
-        // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -67,7 +67,6 @@ namespace ProductInventory.API.Controllers
             return product;
         }
 
-        // POST: api/Products
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
@@ -82,7 +81,6 @@ namespace ProductInventory.API.Controllers
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
-        // PUT: api/Products/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, Product product)
         {
@@ -117,7 +115,6 @@ namespace ProductInventory.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Products/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -132,8 +129,7 @@ namespace ProductInventory.API.Controllers
 
             return NoContent();
         }
-        
-        // GET: api/Products/Categories
+
         [HttpGet("categories")]
         public async Task<ActionResult<IEnumerable<string>>> GetCategories()
         {
@@ -142,7 +138,7 @@ namespace ProductInventory.API.Controllers
                 .Select(p => p.Category!)
                 .Distinct()
                 .ToListAsync();
-                
+
             return categories;
         }
 
