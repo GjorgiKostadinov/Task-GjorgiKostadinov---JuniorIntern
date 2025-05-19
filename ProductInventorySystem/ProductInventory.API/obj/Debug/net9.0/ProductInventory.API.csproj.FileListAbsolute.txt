@@ -123,3 +123,7 @@ C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySyste
 C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\obj\Debug\net9.0\ProductInventory.API.pdb
 C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\obj\Debug\net9.0\ProductInventory.API.genruntimeconfig.cache
 C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\obj\Debug\net9.0\ref\ProductInventory.API.dll
+C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\XG27\Desktop\Task-GjorgiKostadinov - JuniorIntern\ProductInventorySystem\ProductInventory.API\obj\Debug\net9.0\ProductInventory.API.sourcelink.json
